@@ -1,3 +1,5 @@
+const today = require('./formatDate');
+
 class BankAccount {
   constructor() {
     this.balance = 0;
@@ -16,7 +18,7 @@ class BankAccount {
 
   #addStatementEntry(amount, operation) {
     const entry = {
-      date: "31-01-22",
+      date: today(),
       balance: this.balance,
     }
     entry[operation] = amount;
