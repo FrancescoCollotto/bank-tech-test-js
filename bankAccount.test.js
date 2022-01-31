@@ -1,3 +1,4 @@
+const { expect } = require('@jest/globals');
 const BankAccount = require('./bankAccount');
 const account = new BankAccount;
 
@@ -11,4 +12,9 @@ describe('BankAccount', () => {
     account.withdraw(500);
     expect(account.balance).toBe(500);
   });
+
+  it('log a record of any operation into statement', () => {
+    expect(account.statement.length).toBe(2);
+    expect(account.statement[0].debit).toBe(500)
+  })
 });
