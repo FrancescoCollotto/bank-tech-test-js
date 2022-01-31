@@ -1,3 +1,4 @@
+const { expect } = require('@jest/globals');
 const BankAccount = require('./bankAccount');
 const account = new BankAccount;
 
@@ -11,6 +12,11 @@ describe('BankAccount', () => {
     account.withdraw(300);
     expect(account.balance).toBe(700);
   });
+
+  it('checks if the valid input(positive number) is passed to deposit or withdraw functions', () => {
+    expect(account.deposit("200")).toBe("invalid input");
+    expect(account.withdraw(-500)).toBe("invalid input");
+  })
 
   it('log a record of any operation into statement', () => {
     expect(account.statement.length).toBe(2);

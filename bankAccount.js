@@ -7,11 +7,13 @@ class BankAccount {
   }
 
   deposit(credit) {
+    if (typeof credit !== 'number' || credit < 0) return 'invalid input';
     this.balance += credit;
     this.#addStatementEntry(credit, "credit");
   }
 
   withdraw(debit) {
+    if (typeof debit !== 'number' || debit < 0) return 'invalid input';
     this.balance -= debit;
     this.#addStatementEntry(debit, "debit");
   }
