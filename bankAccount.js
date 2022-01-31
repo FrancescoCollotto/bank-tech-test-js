@@ -6,6 +6,10 @@ class BankAccount {
   deposit(credit) {
     this.balance += credit;
   }
+
+  withdraw(debit) {
+    this.balance -= debit;
+  }
 }
 
 module.exports = BankAccount;
