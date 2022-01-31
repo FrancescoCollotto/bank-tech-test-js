@@ -16,6 +16,14 @@ class BankAccount {
     this.#addStatementEntry(debit, "debit");
   }
 
+  printStatement() {
+    if (this.statement.length === 0) return "no available statement";
+    console.log("date || credit || debit || balance");
+    for (const entry of this.statement) {
+      console.log(`${entry['date']} || ${entry['credit'] || ""} || ${entry['debit'] || ""} || ${entry['balance']}`)
+    } 
+  }
+
   #addStatementEntry(amount, operation) {
     const entry = {
       date: today(),
