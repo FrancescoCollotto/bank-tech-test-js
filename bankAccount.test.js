@@ -1,4 +1,3 @@
-const { expect } = require('@jest/globals');
 const BankAccount = require('./bankAccount');
 const account = new BankAccount;
 

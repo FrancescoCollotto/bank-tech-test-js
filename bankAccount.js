@@ -7,13 +7,13 @@ class BankAccount {
   }
 
   deposit(credit) {
-    if (typeof credit !== 'number' || credit < 0) return 'invalid input';
+    if (this.#invalidInput(credit)) return 'invalid input';
     this.balance += credit;
     this.#addStatementEntry(credit, "credit");
   }
 
   withdraw(debit) {
-    if (typeof debit !== 'number' || debit < 0) return 'invalid input';
+    if (this.#invalidInput(debit)) return 'invalid input';
     this.balance -= debit;
     this.#addStatementEntry(debit, "debit");
   }
@@ -33,6 +33,10 @@ class BankAccount {
     }
     entry[operation] = amount;
     this.statement.unshift(entry)
+  }
+
+  #invalidInput(input) {
+    return typeof input !== 'number' || input < 0;
   }
 
 }
