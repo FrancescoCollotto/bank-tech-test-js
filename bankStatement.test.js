@@ -12,11 +12,11 @@ describe('Statement', () => {
     expect(accountStatement.records[0].date).toBe(today());
   })  
 
-  it('log the statement to the terminal', () => {
+  it('log the statement to the terminal with only one call to console.log', () => {
     console.log = jest.fn();
     accountStatement.print();
-    expect(console.log).toHaveBeenCalled();
-    expect(console.log).toHaveBeenCalledWith(`${today()} ||  || 200.00 || 800.00`);
+    expect(console.log).toHaveBeenCalledTimes(1);
+    expect(console.log).toHaveBeenCalledWith(`date || credit || debit || balance\n${today()} ||  || 200.00 || 800.00\n${today()} || 1000.00 ||  || 1000.00\n`);
   })
 
   it('return no available statement if no record has been registered', () => {

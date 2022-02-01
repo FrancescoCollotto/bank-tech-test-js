@@ -7,10 +7,11 @@ class BankStatement {
 
   print() {
     if (this.records.length === 0) return "no available statement";
-    console.log("date || credit || debit || balance");
+    let printableStatement = "date || credit || debit || balance\n";
     for (const entry of this.records) {
-      console.log(`${entry['date']} || ${entry['credit'] || ""} || ${entry['debit'] || ""} || ${entry['balance']}`)
-    } 
+      printableStatement += `${entry['date']} || ${entry['credit'] || ""} || ${entry['debit'] || ""} || ${entry['balance']}\n`;
+    }
+    console.log(printableStatement); 
   }
 
   addEntry(amount, operation, balance) {
