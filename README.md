@@ -11,10 +11,10 @@ A simple banking app that reproduce an employer tech test. The aim is to produce
 
 ### Setup
 
-In the terminal run `npm install` inside the project directory to install the app dependency
-To run the app:
-enter the node repl in the terminal with `node`, `.load bankAccount.js` to load the app in node
-you can now use the bank account like so:
+In the terminal run `npm install` inside the project directory to install the app dependency  
+To run the app:  
+enter the node repl in the terminal with `node`, `.load bankAccount.js` to load the app in node  
+you can now use the bank account like so:  
 
 ```
 const account = new BankAccount;
@@ -25,5 +25,5 @@ account.printStatement()
 
 ### How to run the tests
 
-`npm install -g jest` install jest globally in your machine if you haven't already
+`npm install -g jest` install jest globally in your machine if you haven't already  
 Run `jest` in the project directory to run the tests
