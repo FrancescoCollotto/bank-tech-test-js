@@ -22,4 +22,15 @@ describe('BankAccount', () => {
     expect(account.balance).toBe(1000.56);
   })
 
+  it('can print the account statement', () => {
+    const print = jest.fn();
+    const mockBankStatement = {
+      print: print,
+    }
+    const newAccount = new BankAccount;
+    newAccount.statement = mockBankStatement;
+    newAccount.printStatement();
+    expect(mockBankStatement.print).toHaveBeenCalled();
+  })
+
 });
