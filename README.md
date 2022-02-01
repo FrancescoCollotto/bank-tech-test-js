@@ -9,7 +9,12 @@ A simple banking app that reproduce an employer tech test. The aim is to produce
 * A user can print the account statement showing: date, amount and balance of each operation
 * A user can only input a valid number to deposit or withdraw (positive number)
 
-### Setup
+### Approach
+
+I made 2 classes and one file containg 2 helper functions.  
+BankAccount is the main class initialised with `this.balance = 0`, it has 3 methods: `deposit`, `withdraw` and `printStatement`. BankStatement is the second class and it is injected into BankAccount, it has 2 methods: `print` and `addEntry`. The helperFunctions file has 2 functions: `formatDate` to grab today's date in the proper format and `invalidInput` to check the inputs pass to deposit and withdraw functions in BankAccount.
+
+### Setup and how to run 
 
 In the terminal run `npm install` inside the project directory to install the app dependency  
 To run the app:  
