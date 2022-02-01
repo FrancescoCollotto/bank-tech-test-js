@@ -8,12 +8,14 @@ class BankAccount {
 
   deposit(credit) {
     if (this.#invalidInput(credit)) return 'invalid input';
+    credit = Number(credit.toFixed(2));
     this.balance += credit;
     this.#addStatementEntry(credit, "credit");
   }
 
   withdraw(debit) {
     if (this.#invalidInput(debit)) return 'invalid input';
+    debit = Number(debit.toFixed(2));
     this.balance -= debit;
     this.#addStatementEntry(debit, "debit");
   }
@@ -29,9 +31,9 @@ class BankAccount {
   #addStatementEntry(amount, operation) {
     const entry = {
       date: today(),
-      balance: this.balance,
+      balance: this.balance.toFixed(2),
     }
-    entry[operation] = amount;
+    entry[operation] = amount.toFixed(2);
     this.statement.unshift(entry)
   }
 

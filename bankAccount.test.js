@@ -17,10 +17,15 @@ describe('BankAccount', () => {
     expect(account.withdraw(-500)).toBe("invalid input");
   })
 
+  it('rounds the number input in deposit and withdraw to 2 decimal places', () => {
+    account.deposit(300.5555);
+    expect(account.balance).toBe(1000.56);
+  })
+
   it('log a record of any operation into statement', () => {
-    expect(account.statement.length).toBe(2);
-    expect(account.statement[0].debit).toBe(300)
-    expect(account.statement[0].balance).toBe(700)
+    expect(account.statement.length).toBe(3);
+    expect(account.statement[0].credit).toBe("300.56")
+    expect(account.statement[0].balance).toBe("1000.56")
   })
 
   it('log the statement to the terminal', () => {
