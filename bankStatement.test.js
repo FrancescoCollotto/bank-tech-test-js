@@ -1,5 +1,6 @@
 const BankStatement = require('./bankStatement');
-const today = require('./formatDate');
+const {formatDate} = require('./helperFunctions');
+const today = formatDate;
 const accountStatement = new BankStatement;
 
 describe('Statement', () => {

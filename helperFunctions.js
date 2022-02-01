@@ -7,4 +7,8 @@ const formatDate = () => {
   return `${day}-${month}-${year}`;
 }
 
-module.exports = formatDate;
+const invalidInput = (input) => {
+  return typeof input !== 'number' || input < 0;
+}
+
+module.exports = {formatDate, invalidInput};

@@ -1,4 +1,5 @@
-const today = require('./formatDate');
+const {formatDate} = require('./helperFunctions');
+const today = formatDate;
 
 class BankStatement {
   constructor() {

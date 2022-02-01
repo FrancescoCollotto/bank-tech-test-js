@@ -1,4 +1,5 @@
 const BankStatement = require('./bankStatement');
+const {invalidInput} = require('./helperFunctions');
 
 class BankAccount {
   constructor() {
@@ -7,14 +8,14 @@ class BankAccount {
   }
 
   deposit(credit) {
-    if (this.#invalidInput(credit)) return 'invalid input';
+    if (invalidInput(credit)) return 'invalid input';
     credit = Number(credit.toFixed(2));
     this.balance += credit;
     this.statement.addEntry(credit, "credit", this.balance);
   }
 
   withdraw(debit) {
-    if (this.#invalidInput(debit)) return 'invalid input';
+    if (invalidInput(debit)) return 'invalid input';
     debit = Number(debit.toFixed(2));
     this.balance -= debit;
     this.statement.addEntry(debit, "debit", this.balance);
@@ -22,10 +23,6 @@ class BankAccount {
 
   printStatement() {
     this.statement.print();
-  }
-
-  #invalidInput(input) {
-    return typeof input !== 'number' || input < 0;
   }
 
 }
