@@ -17,7 +17,9 @@ class BankAccount {
   }
 
   withdraw(debit) {
-    if (invalidInput(debit)) return 'invalid input';
+    if (invalidInput(debit)) {
+      return 'invalid input';
+    }
     debit = Number(debit.toFixed(2));
     this.addTransaction(debit, "debit");
   }
