@@ -10,6 +10,9 @@ describe('BankAccount feature test', () => {
     account.withdraw(200.55);
     expect(account.transactions[1]["debit"]).toBe(200.55);
     expect(account.balance()).toBe(799.45);
+    expect(account.deposit(-200)).toBe("invalid input");
+    expect(account.deposit("200")).toBe("invalid input");
+    expect(account.deposit(200.123)).toBe("invalid input");
     console.log = jest.fn();
     account.printStatement();
     expect(console.log).toHaveBeenCalledWith(`date || credit || debit || balance\n${today()} ||    || 200.55 || 799.45\n${today()} || 1000.00 ||    || 1000.00\n`);
