@@ -1,4 +1,4 @@
-const BankStatement = require('./bankStatement');
+const BankStatement = require('../bankStatement');
 const accountStatement = new BankStatement;
 const transactions = [
   {date: "30/01/2022", credit: 2000},

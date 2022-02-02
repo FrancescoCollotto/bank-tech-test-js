@@ -1,4 +1,4 @@
-const {formatDate, invalidInput} = require('./helperFunctions');
+const {formatDate, invalidInput} = require('../helperFunctions');
 
 describe('formatDate', () => {
   it("return a string of today's date in the format 'dd-mm-yyyy'", () => {
