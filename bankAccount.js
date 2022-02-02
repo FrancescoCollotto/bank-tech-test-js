@@ -30,6 +30,18 @@ class BankAccount {
     this.transactions.push(transaction)
   }
 
+  balance() {
+    let balance = 0;
+    for(const transaction of this.transactions) {
+      if(transaction["credit"]) {
+        balance += transaction["credit"];
+      } else {
+        balance -= transaction["debit"];
+      }
+    }
+    return balance;
+  }
+
   printStatement() {
     this.statement.print(this.transactions);
   }
