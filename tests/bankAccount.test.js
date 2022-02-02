@@ -17,14 +17,10 @@ describe('BankAccount', () => {
     expect(account.balance()).toBe(700);
   });
 
-  it('checks if the valid input(positive number) is passed to deposit or withdraw functions', () => {
+  it('checks if the valid input(positive number with max two decimal places) is passed to deposit or withdraw functions', () => {
     expect(account.deposit("200")).toBe("invalid input");
     expect(account.withdraw(-500)).toBe("invalid input");
-  })
-
-  it('rounds the number input in deposit and withdraw to 2 decimal places', () => {
-    account.deposit(300.5555);
-    expect(account.balance()).toBe(1000.56);
+    expect(account.withdraw(100.1234)).toBe("invalid input");
   })
 
   it('can print the account statement', () => {

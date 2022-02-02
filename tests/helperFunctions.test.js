@@ -12,7 +12,8 @@ describe('invalidInput', () => {
     expect(invalidInput("300")).toBe(true);
     expect(invalidInput([1])).toBe(true);
     expect(invalidInput(-1000)).toBe(true);
+    expect(invalidInput(100.123)).toBe(true);
     expect(invalidInput(2000)).toBe(false);
-    expect(invalidInput(100.12345)).toBe(false);
+    expect(invalidInput(100.12)).toBe(false);
   })
 })

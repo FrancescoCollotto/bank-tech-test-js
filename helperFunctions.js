@@ -8,7 +8,7 @@ const formatDate = () => {
 }
 
 const invalidInput = (input) => {
-  return typeof input !== 'number' || input < 0;
+  return (typeof input !== 'number' || input < 0) || (input % 1 !== 0 && input.toString().split(".")[1].length > 2);
 }
 
 module.exports = {formatDate, invalidInput};
